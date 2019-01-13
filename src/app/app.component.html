@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="card my-3">
+        <div class="card-header">
+          <button class="btn btn-primary mr-1" (click)="deck.shuffle()">Shuffle Deck</button>
+          <button class="btn btn-secondary" (click)="dealOneCard()" [disabled]="deck.isEmpty()">Deal One Card</button>
+          <button class="btn btn-success float-right" (click)="rebuildDeck()">Rebuild Deck</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div class="card">
+        <div class="card-header"><h3 class="card-title">Deck Content</h3></div>
+        <div class="card-body">
+          <app-card *ngFor="let card of deck.cards" [card]="card"></app-card>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card">
+        <div class="card-header"><h3 class="card-title">Out of Deck</h3></div>
+        <div class="card-body">
+          <app-card *ngFor="let dealtCard of dealtCards" [card]="dealtCard"></app-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
